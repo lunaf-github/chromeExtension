@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "Todo List",
+  "version": "1.0",
+  "description": "Todo List Chrome Extension",
+  "chrome_url_overrides": {
+    "newtab": "main.html"
+  },
+  "icons": { "48": "icon48.png" },
+  "permissions": [
+    "storage",
+    "notifications",
+    "contextMenus",
+    "tabs",
+    "http://*/*",
+    "https://*/*",
+    "chrome://favicon/"
+  ]
+}
