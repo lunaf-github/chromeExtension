@@ -1,4 +1,9 @@
-for (let i = 2; i <= localStorage.length; i += 1) {
+for (let i = 1; i <= localStorage.length; i += 1) {
+  // const entryHolder = document.createElement('div');
+  // entryHolder.setAttribute('id', counter + '');
+  // const checklist = document.createElement('input');
+  // checklist.setAttribute('type', 'checkbox');
+  // entryHolder.style.display = 'flex';
   const newEntry = document.createElement('li');
   const inputText = localStorage[i];
   document.getElementById('list').appendChild(newEntry);
@@ -14,25 +19,31 @@ const buttonPress = document.getElementById('addButton');
 buttonPress.addEventListener('click', function () {
   let counter = localStorage.length;
 
-  // const entryHolder = document.createElement('div');
-  // entryHolder.setAttribute('id', counter + '');
-
+  const entryHolder = document.createElement('div');
+  entryHolder.setAttribute('id', counter + '');
+  const checklist = document.createElement('input');
+  checklist.setAttribute('type', 'checkbox');
+  entryHolder.style.display = 'flex';
   const newEntry = document.createElement('li');
   //   newEntry.setAttribute('type', 'checkbox');
   const inputText = document.getElementById('inputText').value;
-  document.getElementById('list').appendChild(newEntry);
+  entryHolder.appendChild(newEntry);
+  entryHolder.appendChild(checklist);
+
+  document.getElementById('list').appendChild(entryHolder);
   newEntry.innerHTML = inputText;
   counter += 1;
 
   localStorage[counter] = inputText;
 
-  // chrome.storage.sync.set({ key: inputText }, function () {
-  //   console.log('Value is set to ' + inputText);
-  // });
-
-  // chrome.storage.local.get('test', function (result) {
-  //   console.log('Value currently is ' + result.key);
-  // });
+  //
 });
+
+const clearBtn = document.getElementById('clearButton');
+clearBtn.addEventListener('click', function () {
+  localStorage.clear();
+  location.reload();
+});
+
 // console.log(localStorage['test']);
 console.log(localStorage);
