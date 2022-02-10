@@ -1,3 +1,9 @@
+date = document.getElementById('date');
+let today = new Date();
+let todayDate =
+  today.getMonth() + 1 + '/' + today.getDate() + '/' + today.getFullYear();
+date.innerText = todayDate;
+
 for (let i = 1; i <= localStorage.length; i += 1) {
   // const entryHolder = document.createElement('div');
   // entryHolder.setAttribute('id', counter + '');
